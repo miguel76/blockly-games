@@ -52,6 +52,18 @@ a {
   font-size: medium;
 }
 
+#shareDataPara {
+  position: absolute;
+  top: 0;
+  margin: 1em;
+}
+
+#shareData {
+  padding: 0 4px;
+  margin: 5px 10px;
+  font-size: medium;
+}
+
 #path {
   stroke: #ccc;
   stroke-width: 1;

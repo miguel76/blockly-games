@@ -66,6 +66,11 @@ Index.init = function() {
     clearButtonPara.style.visibility = 'visible';
     var clearButton = document.getElementById('clearData');
     BlocklyGames.bindClick(clearButton, Index.clearData_);
+
+    var shareButtonPara = document.getElementById('shareDataPara');
+    shareButtonPara.style.visibility = 'visible';
+    var shareButton = document.getElementById('shareData');
+    BlocklyGames.bindClick(shareButton, Index.shareData_);
   }
 
   function animateFactory(app, angle) {
@@ -139,4 +144,22 @@ Index.clearData_ = function() {
     }
   }
   location.reload();
+};
+
+/**
+ * Share all stored data.
+ * @private
+ */
+Index.shareData_ = function() {
+  var localData = {};
+  for (var i = 0; i < Index.APPS.length; i++) {
+    for (var j = 1; j <= BlocklyGames.MAX_LEVEL; j++) {
+      var key = Index.APPS[i] + j;
+      var value = window.localStorage[key];
+      if (value) {
+        localData[key] = value;
+      }
+    }
+  }
+  console.log(localData);
 };
